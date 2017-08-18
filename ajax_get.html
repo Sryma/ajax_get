@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Test</title>
+
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+  
+
+</head>
+
+<body>
+  
+<button id="btn_1">Show Post #1</button>
+<!-- <button id="btn_2">Show Post #2</button>
+<button id="btn_3">Show Post #3</button>
+<button id="btn_4">Show Post #4</button> -->
+<!-- start of button_1 -->
+<h1 id="title"></h1>
+
+<!-- <button id="btn">Add</button>
+ -->
+<div id="content"></div>
+
+<script type="text/javascript">
+
+// jquery append function demo
+	//$('#btn_1').on('click', function(e){
+
+		//$("#content").append('loss you');
+	//});
+
+
+	$('#btn_1').on('click', function(e){
+
+
+	e.preventDefault();
+
+	$.ajax({
+		url: "https://jsonplaceholder.typicode.com/posts",
+		method: 'GET',
+		success: function(data){
+			//console.log('success',data);
+			//$('#title').text(data.title);
+			$.each(data, function(i,order){
+				$('#content').append('<li> my order: Id '+ order.id +", "+ 'Title: '+ order.title +" , " +'Body: '+ order.body +'</li>');
+			});
+		
+			
+		},
+		error: function(error){
+
+		}
+	});
+
+});
+
+// end of button_1//
+//start of button_2//
+
+
+
+</script>
+</body>
+</html>
